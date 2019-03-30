@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style type="text/css">
+        #colorconcat {
+          color: purple;
+          background: burlywood;
+          padding: 10px 17px;
+        }   
+
+        #colorjoin {
+          color:crimson;
+          background: burlywood;
+          padding: 10px 17px;
+        }   
+        #colorpush {
+          color:darkgreen;
+          background: burlywood;
+          padding: 10px 17px;
+        }   
+        #colorsplice {
+          color:darkmagenta;
+          background: burlywood;
+          padding: 10px 17px;
+        }   
+
+
+        </style>
+</head>
+<body>
+    <h1>Ejercicios javascript</h1>
+    <button id="colorconcat" onclick="concat()">verconcat</button>
+    <button id="colorjoin" onclick="join()">verjoin</button>
+    <button id="colorpush" onclick="push()">verpush</button>
+    <button id="colorsplice" onclick="splice()">versplice</button>
+    <button id="colorsplice" onclick="numero2()">numero2</button>
+    <button id="colorsplice" onclick="filtropersonas()">filtro personas</button>  
+    <button id="colorsplice" onclick="numeromaximonumerominimo()">numero5</button>  
+   
+    <table width="100%" border="3">
+            <thead>
+                <th>Name</th>
+                <th>Apellido</th>
+                <th>Sexo</th>
+            </thead>
+            <tbody id="crea-tabla">
+                
+            </tbody>
+        </table> 
+   <script>
+    //concat une los arreglos 
+    function concat()
+    {
+    var clientes = ["clienteuno", "clientedos", "clientetres"];
+    var empleados = ["empleadouno", "empleadodos", "empleadotres"];
+    var fusion = clientes.concat(empleados);
+    console.log(fusion);
+    }
+    //join los uno pero los devuelve en texto
+    function join(){
+    var clientes = ["clienteuno", "clientedos", "clientetres"];
+    var empleados = ["empleadouno", "empleadodos", "empleadotres"];
+    var fusion = clientes.join(empleados);
+    console.log(fusion);
+    }
+    //push añade uno o más elementos al final de un array y devuelve la nueva longitud del array.
+    function push(){
+    var clientes = ["clienteuno", "clientedos", "clientetres"];
+    var empleados = ["empleadouno", "empleadodos", "empleadotres"];
+    var fusion = clientes.push(empleados);
+    console.log(fusion);
+    }
+   //splice cambia el contenido de un array eliminando elementos existentes
+    function splice(){
+    var clientes = ["clienteuno", "clientedos", "clientetres"];
+    var empleados = ["empleadouno", "empleadodos", "empleadotres"];
+    var fusion = empleados.splice(clientes);
+    console.log(fusion);
+    }
+   
+   
+  /*Agrega una variable para alojar el resultado de la función filter() 
+  y explica cual es el resultado. Dado el siguiente arreglo de objetos:*/   
+   
+   function numero2()
+   {
+   var numbers = [5, 32, 43, 4];  
+   let resultado = []
+   resultado= numbers.filter(function(n) { return n % 2 !== 0; });
+   console.log(resultado);
+  }
+//Genera la función en javascript que filtre a las personas menores de 35 años.
+function filtropersonas()
+{
+   var people = [{
+   id: 1,
+   name: "John",
+   age: 28
+   }, {
+   id: 2,
+   name: "Jane",
+   age: 31
+   }, {
+   id: 3,
+   name: "Peter",
+   age: 55 }];
+let filtropersonas = people.filter(function(fil)
+{
+let resultado = fil;
+if (fil.age <=35) {
+    console.log(resultado);
+}
+});
+};
+//Genera la función para obtener el numero de veces que aparece cada nombre. 
+function numeroapareceelnombre()
+{
+let people = [
+{ name: "bob", id:1 }, { name: "john", id:2 }, 
+{ name: "alex", id:3 }, { name: "john", id:3 }
+];
+var matriz=new Array(4); 
+for (i = 0; i<people.length; i++){ 
+matriz[i]=new Array(4); 
+console.log(matriz);
+}
+} 
+//Genera la función para imprimir en consola el numero máximo y el numero mínimo. matriz nombre numero 
+        
+        function numeromaximonumerominimo ()
+        {
+        var myArray = [1, 2, 3, 4];
+             min=max=myArray[0];
+        for(i = 0; i < myArray.length; i++)
+        {
+            if(min>myArray[i])
+            {
+                min=myArray[i];
+            }
+            if(max<myArray[i])
+            {
+                max=myArray[i];
+            }
+        }
+        console.log("El valor minimo es: " + min , "El valor minimo es: " + max) 
+        }
+              
+        //Generar la función para pasar cada elemento ‘key’ a un arreglo y ordenarlos según su valor.
+        //los acomoda de menor a mayor
+     
+     //Generar una tabla con javascript en un documento HTML que presente los  datos.    
+       
+     var datosperson = [
+		{
+			"name": "julio",
+			"apellido": "lima",
+			"sexo": "masculino"
+		},
+	    {
+			"name": "julia",
+			"apellido": "hernandez",
+			"sexo": "femenino"
+		},
+		];
+		var cretabla = document.createDocumentFragment();
+
+		datosperson.forEach(item =>{const tr = document.createElement('tr');
+
+			for(prop in item){
+				const td = document.createElement('td');
+				td.textContent = item[prop];
+				tr.appendChild(td);
+			}
+
+			cretabla.appendChild(tr);
+
+		});	document.getElementById("crea-tabla").appendChild(cretabla);
+
+
+</script>
+</body>
+</html>
